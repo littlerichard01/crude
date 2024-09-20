@@ -76,15 +76,10 @@ app.get("/excluir/:id", function(req,res){
     
 })
 
-app.post("/deletar", function(req, res){
+app.post("/deletar/:id", function(req, res){
     post.destroy({
         where:{
-            id: req.body.id,
-            nome: req.body.nome,
-            telefone: req.body.telefone,
-            origem: req.body.origem,
-            data_contato: req.body.data_contato,
-            observacao: req.body.observacao
+            'id': req.params.id,
         }
     }).then(
         function(){
